@@ -21,15 +21,15 @@ public class WishListsTest {
     };
 
     private static final CarOption[] items = new CarOption[]{
-//            new CarOption("Klima", 1500),
+//            new CarOption("Klima", 1500), //todo
 //            new CarOption("Radyjko", 1200),
 //            new CarOption("Wycieraczki", 100),
 //            new CarOption("Dywaniki", 150)
     };
 
     private static Map<Integer, Customer> customerMap;
-    private static CustomerService customerService = new CustomerService();
-    private static CarOptionService carOptionService = new CarOptionService();
+    private static CustomerService customerService = null;
+    private static CarOptionService carOptionService = null;
 
     @BeforeAll
     public static void prepareWishLists() {
@@ -57,8 +57,7 @@ public class WishListsTest {
     @Test
     public void wishItemsOverBudget() {
         Map<String, BigDecimal> carOptionNamePriceMap = carOptionService.convertToNamePriceMap(items);
-        Map<Customer, BigDecimal> customerWishListCostMap = customerService.convertToList(people).stream()
-                .collect(Collectors.toMap(Function.identity(), customer -> customerService.computeAllWishItemsCost(customer, carOptionNamePriceMap)));
+        Map<Customer, BigDecimal> customerWishListCostMap = new HashMap<>(); //todo
 
         customerWishListCostMap.entrySet().stream()
                 .filter(entry -> entry.getKey().getSalary().compareTo(entry.getValue()) <= 0)
@@ -67,10 +66,9 @@ public class WishListsTest {
     }
 
     @Test
-    public void whatCustomersCanAffordIncludingOrder(){
+    public void whatCustomersCanAffordIncludingOrder() {
         Map<String, BigDecimal> carOptionNamePriceMap = carOptionService.convertToNamePriceMap(items);
-        Map<Customer, List<WishItem>> customerAffordableItemsMap = customerService.convertToList(people).stream()
-                .collect(Collectors.toMap(Function.identity(), customer -> customerService.getAffordableItemsIncludingOrder(customer, carOptionNamePriceMap)));
+        Map<Customer, List<WishItem>> customerAffordableItemsMap = new HashMap<>(); //todo
 
         System.out.println("Car options with prices:");
         carOptionNamePriceMap.forEach((name, price) -> System.out.println("\t" + name + ": " + price));
@@ -82,10 +80,9 @@ public class WishListsTest {
     }
 
     @Test
-    public void whatCustomersCanAffordMaxItems(){
+    public void whatCustomersCanAffordMaxItems() {
         Map<String, BigDecimal> carOptionNamePriceMap = carOptionService.convertToNamePriceMap(items);
-        Map<Customer, List<WishItem>> customerAffordableItemsMap = customerService.convertToList(people).stream()
-                .collect(Collectors.toMap(Function.identity(), customer -> customerService.getAffordableItemsMaxQuantity(customer, carOptionNamePriceMap)));
+        Map<Customer, List<WishItem>> customerAffordableItemsMap = new HashMap<>(); //todo
 
         System.out.println("Car options with prices:");
         carOptionNamePriceMap.forEach((name, price) -> System.out.println("\t" + name + ": " + price));
@@ -99,8 +96,7 @@ public class WishListsTest {
     @Test
     public void customerWithMaximumMoneyLeftAfterBuingAllWishList() {
         Map<String, BigDecimal> carOptionNamePriceMap = carOptionService.convertToNamePriceMap(items);
-        Map<Customer, BigDecimal> customerWishListCostMap = customerService.convertToList(people).stream()
-                .collect(Collectors.toMap(Function.identity(), customer -> customerService.computeAllWishItemsCost(customer, carOptionNamePriceMap)));
+        Map<Customer, BigDecimal> customerWishListCostMap = new HashMap<>(); //todo
 
         customerWishListCostMap.forEach((c, p) -> System.out.println(c + " :: " + p + " -> " + c.getSalary().subtract(p)));
 
