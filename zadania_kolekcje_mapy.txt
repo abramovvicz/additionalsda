@@ -1,0 +1,86 @@
+
+Customer[] people = new Customer[]{
+            new Customer( "Anna", "Nowak   ", 33, "1200"),
+            new Customer( "Beata", "Kowalska", 22, "1200"),
+            new Customer( "Marek", " Nowak", 25, "1250"),
+            new Customer( "Adam", "Twardowski", 33, "4100"),
+            new Customer( "Monika  ", "Kos", 25, "2500"),
+            new Customer( "Adam ", "Rudy", 45, "3333"),
+            new Customer( "Marek", "Rudy", 15, 2210),
+	    new Customer( "Adam", "Madej", 15, 3333)
+}
+
+Napiszcie klasę Customer, która będzie reprezentować dane z tablicy + będzie dobierać kolejne id dla kolejnych tworzonych obiektów -> Anna powinna otrzymać id = 1 a Marek id = 3
+
+Klasa Customer powinna mieć następujące wartości
+id
+imię
+nazwisko
+wiek
+zarobki miesięczne -> <tak, w deklaracji w tablicy nie ma błędu, jest wyzwanie;)>
+
+1. Napisz metodę, która zamieni tablicę people na listę people - ta metoda może być potem wykorzystywana przez Was w następnych metodach
+
+2. Napisz metodę, która przyjmie tablicę people i zwróci listę Stringów <imię nazwisko> (elementem listy będzie np "Anna Nowak")
+
+3. Napisz metodę, która zwróci mapę osób <id,osoba>
+
+4. Napisz metodę, która zwróci mapę osób według zarobków <zarobki,osoby_z_zarobkami>
+
+5. Napisz metodę, która zwróci statystykę ile jest osób z danymi zarobkami <zarobki,liczba_osób>
+
+6. Napisz metodę, która zwróci mapę map <imię,<zarobki,liczba_osób_z_takimi_zarobkami>>
+
+7. Napisz metodę, która zwróci mapę <imię,<suma_zarobków_osób_o_taki_imieniu>>
+
+
+CarOption[] items = new CarOption[]{
+	new CarOption("Klima",1500),
+  new CarOption("Radyjko",1200),
+  new CarOption("Wycieraczki",100),
+  new CarOption("Dywaniki",150)
+}
+Klasa CarOption powinna mieć następujące wartości:
+id
+nazwa części
+cena części
+
+Lista preferencji (:4 - oznacza, że klient chce 4 takie elementy)
+1,"Klima","Radyjko","Wycieraczki","Dywaniki:4"
+2,"Radyjko","Klima","Wycieraczki","Dywaniki:2"
+3,"Radyjko","Wycieraczki:3","Dywaniki","Klima"
+4,"Wycieraczki","Klima","Radyjko","Dywaniki"
+5,"Wycieraczki","Dywaniki","Klima","Radyjko"
+6,"Dywaniki","Radyjko","Klima","Wycieraczki"
+7,"Klima","Radyjko","Wycieraczki:2","Dywaniki"
+8,"Radyjko","Wycieraczki","Klima","Dywaniki"
+
+1. Wyświetl ile zabraknie poszczególnym klientom do wybrania wszystkich elementów wyposażenia
+2. Wyświetl wyposażenie na które stać poszczególnych klientów (kolejność ich preferencji musi pozostać)
+3. Wyświetl klienta, którego stać na wszystkie elementy i zostanie mu najwięcej pięniędzy
+4. Wyświetl wyposażenie na które stać poszczególnych klientów (należy wybrać jak najwięcej elementów, ale kolejność preferencji nie ma znaczenia)
+5. Wyświetl wyposażenie na które stać poszczególnych klientów (należy wybrać jak najwięcej elementów, ale kolejność preferencji ma znaczenie)
+
+
+Klienci mają swoje pretensje:
+"Za drogie" - pierwszych 5
+"Cholera! Nie podoba mi się" 4 i 5
+"Nie trzeba mi tego!" powyżej 4
+
+Należy wypisać listę raportów, gdzie "reason" będzie zbiorem wszystkich żali po przecinku:
+public class CustomReport {
+    private Person person;
+    private String reason;
+}
+
+Należy zapewnić przy tym eliminację słów ogólnie przyjętych jako obelżywe na podstawie takiej mapy
+
+"szlag" -> "kurczę"
+"cholera" -> "motyla noga"
+"oCieBaton" -> "ja nie mogę"
+
+
+
+-----------------------
+Wszystkie te zadania najlepiej jest napisać z wykorzystaniem testów.
+W wymienionych przypadkach użyjcie klasycznych pętli oraz streamów (najlepiej jako drugi sposób rozwiązania - np metoda z suffixem "withStream")

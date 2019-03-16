@@ -1,9 +1,13 @@
 package pl.sda.customers;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 
 @Getter
+@AllArgsConstructor
 public class WishItem {
-    //name //todo
-    //quantity
+    private String name;
+    private Integer quantity;
+
+
 }

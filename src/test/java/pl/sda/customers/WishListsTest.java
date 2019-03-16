@@ -5,8 +5,6 @@ import org.junit.jupiter.api.Test;
 
 import java.math.BigDecimal;
 import java.util.*;
-import java.util.function.Function;
-import java.util.stream.Collectors;
 
 public class WishListsTest {
     private static final Customer[] people = new Customer[]{
@@ -46,13 +44,20 @@ public class WishListsTest {
 
     private static void prepareWishListForCustomer(Integer id, String... items) {
         Customer customer = customerMap.get(id);
-        Arrays.stream(items)
-                .map(s -> {
-                    return new WishItem(); //todo
+        Arrays.stream(items)//odjaniepawliło //ternart opperator
+                .map(s ->
+                {
+                    return getWishItem(s);
 
                 })
                 .forEach(wi -> customer.addToWishList(wi));
     }
+
+    private static WishItem getWishItem(String s) {
+        String[] split = s.split(":");
+        return new WishItem(split[0], split.length > 1 ? Integer.valueOf(split[1]) : 1); //todo
+    }
+
 
     @Test
     public void wishItemsOverBudget() {

@@ -4,20 +4,18 @@ import lombok.Getter;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
 
 @Getter
 public class Customer {
+    private static AtomicInteger sequenceGenerator = new AtomicInteger();
     private Integer id;
     private String firstName;
     private String lastName;
     private Integer age;
     private BigDecimal salary;
     private List<WishItem> wishList;
-
-    private static AtomicInteger sequenceGenerator = new AtomicInteger();
 
     public Customer(String firstName, String lastName, Integer age, BigDecimal salary) {
         this.id = sequenceGenerator.incrementAndGet();
@@ -36,10 +34,18 @@ public class Customer {
     }
 
     public List<WishItem> getWishList() {
-        return null; //todo
+        return wishList; //todo
     }
 
     public void addToWishList(WishItem wishItem) {
+        if(wishList == null){
+            wishList = new ArrayList<>();
+        }
+        wishList.add(wishItem);
         //todo
+    }
+
+    public Integer getId() {
+        return id;
     }
 }
