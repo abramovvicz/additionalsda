@@ -33,6 +33,8 @@ public class Customer {
         this(firstName, lastName, age, new BigDecimal(salary));
     }
 
+
+
     public List<WishItem> getWishList() {
         return wishList; //todo
     }

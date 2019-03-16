@@ -17,3 +17,7 @@ I
 zadania_kolekcje_mapy.txt,9/7/9795504d3f34466ae5d4261464cf9adec629a016
 \
 ,src/main/java/pl/sda/customers/Customer.java,e/d/edd1479f344ed96f68a5757904bf132d37d5041f
+f
+6src/main/java/pl/sda/customers/CustomerNewService.java,9/4/9463aa7c36528d1659e3d904cbdb6d89473770c9
+_
+/src/main/java/pl/sda/customers/CustomerNew.java,f/f/ffc1435dcb0fc26915e82f57c600086f3487c281
